@@ -426,31 +426,9 @@ END @@
 
 DROP PROCEDURE verifica_pontos;
 
--- Criando a Função --
 
-DELIMITER @@
-CREATE FUNCTION pontos()
-RETURNS 
-	BEGIN
-		DECLARE ;
-        SELECT ;
-        RETURN retorno;		
-    END @@
 
--- Correção do Professor --
 
-SELECT nome, consulta_pontos(cpf) AS pontos FROM paciente;
-
-SET GLOBAL log_bin_trust_function_creators = 1;
-
-DELIMITER @@
-CREATE FUNCTION consulta_pontos(cpf2 VARCHAR(11))
-RETURNS INT
-	BEGIN
-		DECLARE retorno INT;
-        SELECT pontos INTO retorno FROM fidelidade WHERE cpf = cpf2;
-        RETURN retorno;		
-    END @@
 
 
 
