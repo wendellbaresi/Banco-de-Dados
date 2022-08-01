@@ -1,7 +1,7 @@
 CREATE DATABASE db_biblioteca
 ON PRIMARY (
 NAME = db_biblioteca,
-FILENAME = 'D:\Estudos\AperfeiÁoamento em SQL Server\SQLServer\db_biblioteca.MDF',
+FILENAME = 'D:\Estudos\Aperfei√ßoamento em SQL Server\SQLServer\db_biblioteca.MDF',
 SIZE = 8MB,
 MAXSIZE = 20MB,
 FILEGROWTH = 15%
@@ -53,7 +53,7 @@ ALTER TABLE autor
 DROP CONSTRAINT PK__autor__E2671E1B25776F1D
 GO
 
--- DROPANDO A LIGA«√O ENTRE AS CONSTRAINTS
+-- DROPANDO A LIGA√á√ÉO ENTRE AS CONSTRAINTS
 
 ALTER TABLE livro
 DROP CONSTRAINT fk_ID_autor
@@ -132,12 +132,12 @@ GO
 /* INSERTS NA TABELA LIVRO */
 INSERT INTO livro (nome, ISBN, dt_publicacao, preco_livro, ID_editora, ID_Autor)
 VALUES
-('O maravilhoso m·gico de Oz','9788516084936','8.10.2014','80.5','15','1'),
-('O Gato Malhado e a Andorinha Sinh·','9788574063423','10.7.2002','35.80','16','2'),
-('Mau ComeÁo','9788535900941','15.6.2014','93.75','17','3'),
-('O Pequeno PrÌncipe','9788596004329','17.4.2012','50.69','18','4'),
+('O maravilhoso m√°gico de Oz','9788516084936','8.10.2014','80.5','15','1'),
+('O Gato Malhado e a Andorinha Sinh√°','9788574063423','10.7.2002','35.80','16','2'),
+('Mau Come√ßo','9788535900941','15.6.2014','93.75','17','3'),
+('O Pequeno Pr√≠ncipe','9788596004329','17.4.2012','50.69','18','4'),
 ('O Anjo Linguarudo','856023168','17.4.2012','100.15','19','5'),
-('Confissıes de um Vira-Lata','9788526016866','30.8.2016','50.69','20','6'),
+('Confiss√µes de um Vira-Lata','9788526016866','30.8.2016','50.69','20','6'),
 ('Vendedor de Sustos','9788532292827','01.01.2010','99.99','21','7')
 GO
 
@@ -155,8 +155,8 @@ GO
 INSERT INTO livro (nome, ISBN, dt_publicacao, preco_livro,ID_editora, ID_Autor)
 VALUES
 ('Harry Potter e a pedra filosofal','9788532530783','19.8.2017','22.9',NULL,'8'),
-('A Guerra dos Tronos : As CrÙnicas de Gelo e Fogo','9788556510785','25.3.2019','66.99',NULL,'9'),
-('O Senhor dos AnÈis: A Sociedade do Anel','9788595084759','25.11.2019','42.99',NULL,'10')
+('A Guerra dos Tronos : As Cr√¥nicas de Gelo e Fogo','9788556510785','25.3.2019','66.99',NULL,'9'),
+('O Senhor dos An√©is: A Sociedade do Anel','9788595084759','25.11.2019','42.99',NULL,'10')
 GO
 
 
@@ -164,7 +164,7 @@ GO
 INSERT INTO livro (nome, dt_publicacao, preco_livro,ISBN)
 VALUES
 ('O Hobbit','15.6.2019','27.79','9788595084742'),
-('O Pequeno PrÌncipe','27.8.2018','16.86','9788595081512'),
+('O Pequeno Pr√≠ncipe','27.8.2018','16.86','9788595081512'),
 ('Superman','8.12.2015','61.92','9788583781943')
 GO
 
@@ -265,7 +265,7 @@ SELECT nome, preco_livro FROM livro
 WHERE preco_livro > (SELECT AVG(preco_livro) FROM livro)
 GO
 
-SELECT AVG(preco_livro) AS MÈdia FROM livro
+SELECT AVG(preco_livro) AS M√©dia FROM livro
 GO
 
 SELECT nome, preco_livro FROM livro
@@ -330,13 +330,13 @@ GO
 
 -- EXERCICIO
 
--- QUEST√O 1
+-- QUEST√ÉO 1
 
 DELETE FROM editora_copia
 WHERE ID_editora % 2 = 1
 GO
 
--- QUEST√O 2
+-- QUEST√ÉO 2
 
 SELECT ID_autor,COUNT(*) FROM autor_copia
 GROUP BY ID_autor HAVING ID_autor % 2 = 0
@@ -373,14 +373,6 @@ GO
 
 
 ------ SUBQUERY ---------
-SELECT 'Wendell Baresi' AS 'Meu Nome'
-GO
-
-SELECT 
-(SELECT 'Wendell Baresi') AS 'Meu Nome'
-GO
-
-
 
 SELECT Resultado.editora, SUM(Resultado.PrecoLivro) AS total FROM
 
@@ -392,14 +384,6 @@ GROUP BY Resultado.editora
 GO
 
 -- JOINS
-SELECT f.nome_filho,p.nome_pai, m.nome
-FROM filho f
-	LEFT JOIN pai p
-	ON f.ID_pai = p.ID_pai
-	LEFT JOIN mae m
-	ON f.ID_mae = m.ID_mae
-GO
-
 SELECT * FROM livro
 GO
 SELECT * FROM autor
@@ -476,7 +460,7 @@ CREATE OR ALTER TRIGGER tr_update
 			END
 		ELSE
 			BEGIN
-				PRINT 'UPDATE N√O realizado'
+				PRINT 'UPDATE N√ÉO realizado'
 			END
 GO
 
@@ -489,7 +473,7 @@ SET nome = 'O Hobbit a Volta'
 WHERE ID_livro = '1'
 GO
 
--- VISUALIZA«√O DE TRIGGER EXISTENTES
+-- VISUALIZA√á√ÉO DE TRIGGER EXISTENTES
 EXEC sp_helptrigger  'dbo.livro'
 GO
 
