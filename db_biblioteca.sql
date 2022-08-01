@@ -29,7 +29,7 @@ GO
 
 
 sp_help editora
-GO
+Go
 
 CREATE TABLE livro (
 	ID_livro INTEGER PRIMARY KEY (ID_livro) NOT NULL,
